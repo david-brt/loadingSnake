@@ -1,0 +1,14 @@
+{
+  "name": "@barth-david/loading_snake",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve src"
+  },
+  "author": "David Barth",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^13.0.2"
+  }
+}
