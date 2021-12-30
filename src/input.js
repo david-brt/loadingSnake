@@ -33,3 +33,8 @@ export function getInputdirection() {
     lastInputDirection = inputDirection;
     return inputDirection;
 }
+
+export function setInputDirection(newDirection){
+    lastInputDirection = newDirection;
+    inputDirection = newDirection;
+}
