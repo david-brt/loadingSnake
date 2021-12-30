@@ -25,7 +25,6 @@ export function draw(gameBoard) {
             snakeBody[i].x === snakeBody[i - 1].x &&
             snakeBody[i].y === snakeBody[i - 1].y
         ) {
-            console.log("true");
             break;
         } else {
             const snakeElement = document.createElement("div");
