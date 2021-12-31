@@ -1,5 +1,6 @@
-import { onSnake, expandSnake, snakeBody } from "./snake.js";
+import { onSnake, expandSnake } from "./snake.js";
 import { randomGridPosition } from "./grid.js";
+import { gameOver } from './game.js'
 
 let food = generateFood();
 const EXPANSION_RATE = 8;
@@ -9,7 +10,7 @@ export function update() {
         expandSnake(EXPANSION_RATE);
         food = generateFood();
     }
-    else if(snakeBody.length === 1){
+    else if(gameOver){
         food = generateFood();
     }
 }

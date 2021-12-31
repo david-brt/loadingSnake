@@ -12,22 +12,22 @@ import { update as updateFood, draw as drawFood } from "./food.js";
 import { borderCollision } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
 
+export let gameOver = false;
 const GAME_BOARD = document.getElementById("gameBoard");
 const INITIAL_LENGTH = 15;
 let lastRenderTime = 0;
-let gameOver = false;
 let cycleCount = 0;
 
 checkStart();
 
 function main(currentTime) {
     if (gameOver) {
-        gameOver = false;
         GAME_BOARD.innerHTML = '';
         setInputDirection({ x: 0, y: 0 });
         resetSnake();
         updateFood();
         checkStart();
+        gameOver = false;
         return;
     }
     window.requestAnimationFrame(main);
