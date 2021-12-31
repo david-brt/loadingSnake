@@ -26,7 +26,7 @@ function main(currentTime) {
         GAME_BOARD.innerHTML = '';
         setInputDirection({ x: 0, y: 0 });
         resetSnake();
-        draw(cycleCount);
+        updateFood();
         checkStart();
         return;
     }
