@@ -61,10 +61,9 @@ function checkCollision() {
 
 function checkStart() {
     if (getInputdirection().x === 0 && getInputdirection().y === 0) {
-        window.setTimeout(checkStart, 100);
+        setTimeout(checkStart, 200);
     } else {
         expandSnake(7);
         window.requestAnimationFrame(main);
     }
 }
-
