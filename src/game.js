@@ -67,12 +67,12 @@ function deathAnimation(n) {
     let food = document.getElementById("foodElement");
     let snake = document.getElementsByClassName("snake");
     if (n % 2 === 0) {
-        for (let i = 0; i < snakeBody.length; i++) {
+        for (let i = 0; i < snake.length; i++) {
             snake[i].style.opacity = 0;
         }
         food.style.opacity = 0;
     } else {
-        for (let i = 0; i < snakeBody.length; i++) {
+        for (let i = 0; i < snake.length; i++) {
             if (i < 12) {
                 snake[i].style.opacity = (100 - i * 6) / 100;
             } else {
