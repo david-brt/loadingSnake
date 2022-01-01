@@ -1,3 +1,4 @@
+import { INITIAL_LENGTH } from "./game.js"
 import { getInputdirection } from "./input.js";
 import { middleGridPosition, GRID_X, GRID_Y } from "./grid.js";
 
@@ -21,7 +22,7 @@ export function update() {
 export function draw(gameBoard) {
     for (let i = 0; i < snakeBody.length; i++) {
         if (
-            i > 1 &&
+            i > INITIAL_LENGTH &&
             snakeBody[i].x === snakeBody[i - 1].x &&
             snakeBody[i].y === snakeBody[i - 1].y
         ) {

@@ -13,8 +13,8 @@ import { borderCollision } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
 
 export let gameOver = false;
+export const INITIAL_LENGTH = 7;
 const GAME_BOARD = document.getElementById("gameBoard");
-const INITIAL_LENGTH = 15;
 let lastRenderTime = 0;
 let cycleCount = 0;
 
@@ -60,7 +60,7 @@ function resetGameBoard(){
     GAME_BOARD.innerHTML = '';
     resetSnake();
     updateFood();
-    expandSnake(7);
+    expandSnake(INITIAL_LENGTH);
 }
 
 function deathAnimation(n){
@@ -80,7 +80,7 @@ function deathAnimation(n){
 }
 
 function checkStart(n = 0) {
-    if (n < 7 && cycleCount !== 0) {
+    if (n < INITIAL_LENGTH && cycleCount !== 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 100);
     }
