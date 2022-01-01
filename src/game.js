@@ -11,6 +11,7 @@ import {
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { borderCollision } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
+import { deathAnimation } from "./animation.js";
 
 export let gameOver = false;
 export const INITIAL_LENGTH = 7;
@@ -60,26 +61,6 @@ function resetGameBoard() {
     resetSnake();
     updateFood();
     expandSnake(INITIAL_LENGTH);
-}
-
-function deathAnimation(n) {
-    let food = document.getElementById("foodElement");
-    let snake = document.getElementsByClassName("snake");
-    if (n % 2 === 0) {
-        for (let i = 0; i < snake.length; i++) {
-            snake[i].style.opacity = 0;
-        }
-        food.style.opacity = 0;
-    } else {
-        for (let i = 0; i < snake.length; i++) {
-            if (i < 12) {
-                snake[i].style.opacity = (100 - i * 6) / 100;
-            } else {
-                snake[i].style.opacity = 0.3;
-            }
-        }
-        food.style.opacity = 0.7;
-    }
 }
 
 function checkStart(n = 0) {
