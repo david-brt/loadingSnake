@@ -6,7 +6,7 @@ import {
     snakeCollision,
     snakeBody,
     expandSnake,
-    reset as resetSnake
+    reset as resetSnake,
 } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { borderCollision } from "./grid.js";
@@ -35,7 +35,7 @@ function main(currentTime) {
 
     update();
 
-    draw(cycleCount); 
+    if (!gameOver) draw(cycleCount);
 
     cycleCount++;
 }
@@ -56,8 +56,8 @@ function checkCollision() {
     gameOver = borderCollision(getSnakeHead()) || snakeCollision();
 }
 
-function resetGameBoard(){
-    GAME_BOARD.innerHTML = '';
+function resetGameBoard() {
+    GAME_BOARD.innerHTML = "";
     resetSnake();
     updateFood();
     expandSnake(INITIAL_LENGTH);
@@ -76,7 +76,7 @@ function deathAnimation(n) {
             if (i < 12) {
                 snake[i].style.opacity = (100 - i * 6) / 100;
             } else {
-                snake[i].style.opacity = 0.3
+                snake[i].style.opacity = 0.3;
             }
         }
         food.style.opacity = 0.7;
@@ -84,11 +84,10 @@ function deathAnimation(n) {
 }
 
 function checkStart(n = 0) {
-    if (n < INITIAL_LENGTH && cycleCount !== 0) {
+    if (n < 7 && cycleCount !== 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 100);
-    }
-    else if (getInputdirection().x === 0 && getInputdirection().y === 0) {
+    } else if (getInputdirection().x === 0 && getInputdirection().y === 0) {
         setTimeout(() => checkStart(n), 200);
     } else {
         resetGameBoard();
