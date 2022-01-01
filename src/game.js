@@ -63,11 +63,32 @@ function resetGameBoard(){
     expandSnake(7);
 }
 
-function checkStart() {
-    if (getInputdirection().x === 0 && getInputdirection().y === 0) {
-        setTimeout(checkStart, 200);
+function deathAnimation(n){
+    let food = document.getElementById('foodElement');
+    let snake = document.getElementsByClassName('snake');
+    if(n % 2 === 0){
+        for(let i = 0; i < snakeBody.length; i++){
+            snake[i].style.opacity = '0%';
+        }
+        food.style.opacity = '0%';
+    } else{
+        for(let i = 0; i < snakeBody.length; i++){
+            snake[i].style.opacity = '70%';
+        }
+        food.style.opacity ='70%';
+    }
+}
+
+function checkStart(n = 0) {
+    if (n < 7 && cycleCount !== 0) {
+        deathAnimation(n);
+        setTimeout(() => checkStart(n), 100);
+    }
+    else if (getInputdirection().x === 0 && getInputdirection().y === 0) {
+        setTimeout(() => checkStart(n), 200);
     } else {
         resetGameBoard();
         window.requestAnimationFrame(main);
     }
+    n++;
 }
