@@ -22,7 +22,6 @@ checkStart();
 
 function main(currentTime) {
     if (gameOver) {
-        gameOver = false;
         setInputDirection({ x: 0, y: 0 });
         checkStart();
         return;
@@ -91,6 +90,7 @@ function checkStart(n = 0) {
         setTimeout(() => checkStart(n), 200);
     } else {
         resetGameBoard();
+        gameOver = false;
         window.requestAnimationFrame(main);
     }
     n++;
