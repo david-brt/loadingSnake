@@ -22,12 +22,9 @@ checkStart();
 
 function main(currentTime) {
     if (gameOver) {
-        GAME_BOARD.innerHTML = '';
-        setInputDirection({ x: 0, y: 0 });
-        resetSnake();
-        updateFood();
-        checkStart();
         gameOver = false;
+        setInputDirection({ x: 0, y: 0 });
+        checkStart();
         return;
     }
     window.requestAnimationFrame(main);
@@ -59,11 +56,18 @@ function checkCollision() {
     gameOver = borderCollision(getSnakeHead()) || snakeCollision();
 }
 
+function resetGameBoard(){
+    GAME_BOARD.innerHTML = '';
+    resetSnake();
+    updateFood();
+    expandSnake(7);
+}
+
 function checkStart() {
     if (getInputdirection().x === 0 && getInputdirection().y === 0) {
         setTimeout(checkStart, 200);
     } else {
-        expandSnake(7);
+        resetGameBoard();
         window.requestAnimationFrame(main);
     }
 }
