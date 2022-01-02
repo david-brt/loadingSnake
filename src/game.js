@@ -11,7 +11,7 @@ import {
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { borderCollision } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
-import { deathAnimation } from "./animation.js";
+import { circleSpin, deathAnimation } from "./animation.js";
 
 export let gameOver = false;
 export const INITIAL_LENGTH = 7;
@@ -19,6 +19,7 @@ const GAME_BOARD = document.getElementById("gameBoard");
 let lastRenderTime = 0;
 let cycleCount = 0;
 
+circleSpin();
 checkStart();
 
 function main(currentTime) {
@@ -67,6 +68,9 @@ function checkStart(n = 0) {
     if (n < 7 && cycleCount !== 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 100);
+    } else if (n === 7) {
+        circleSpin();
+        checkStart(n + 1);
     } else if (getInputdirection().x === 0 && getInputdirection().y === 0) {
         setTimeout(() => checkStart(n), 200);
     } else {

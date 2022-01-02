@@ -1,4 +1,8 @@
-
+export function circleSpin(){
+    let spinnerDiv = document.createElement("div");
+    document.getElementById("gameBoard").appendChild(spinnerDiv);
+    spinnerDiv.id = "spinner";
+}
 
 export function deathAnimation(n) {
     let food = document.getElementById("foodElement");
