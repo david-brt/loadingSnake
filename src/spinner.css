@@ -1,57 +1,67 @@
 #spinner{
     position: absolute;
-    height: 50px;
-    width: 50px;
+    height: 64px;
+    width: 64px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-#spinner div {
-    transform-origin: 40px 40px;
-    animation: lds-spinner 1.2s linear infinite;
-  }
-  #spinner div:after {
-    content: " ";
-    display: block;
+  #spinner div {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #fff;
+    left: 0;
+    top: 0;
+  }
+  
+  #spinner div:before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    height: 25%;
+    background-color: rgba(255, 255, 255,0.3);
+    border-radius: 100%;
+    -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+            animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
   }
   #spinner div:nth-child(1) {
-    transform: rotate(0deg);
-    animation-delay: -1.1s;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
   }
   #spinner div:nth-child(2) {
-    transform: rotate(45deg);
-    animation-delay: -1s;
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
   }
   #spinner div:nth-child(3) {
-    transform: rotate(90deg);
-    animation-delay: -0.9s;
+    -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+            transform: rotate(135deg);
   }
   #spinner div:nth-child(4) {
-    transform: rotate(135deg);
-    animation-delay: -0.8s;
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   #spinner div:nth-child(5) {
-    transform: rotate(180deg);
-    animation-delay: -0.7s;
+    -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+            transform: rotate(225deg);
   }
   #spinner div:nth-child(6) {
-    transform: rotate(225deg);
-    animation-delay: -0.6s;
+    -webkit-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+            transform: rotate(270deg);
   }
   #spinner div:nth-child(7) {
-    transform: rotate(270deg);
-    animation-delay: -0.5s;
+    -webkit-transform: rotate(315deg);
+        -ms-transform: rotate(315deg);
+            transform: rotate(315deg);
   }
   #spinner div:nth-child(8) {
-    transform: rotate(315deg);
-    animation-delay: -0.4s;
+    -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
