@@ -9,7 +9,7 @@ import {
     reset as resetSnake,
 } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
-import { borderCollision } from "./grid.js";
+import { borderCollision, setGridSize } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
 import { circleSpin, deathAnimation } from "./animation.js";
 
@@ -19,6 +19,7 @@ const GAME_BOARD = document.getElementById("gameBoard");
 let lastRenderTime = 0;
 let cycleCount = 0;
 
+setGridSize();
 circleSpin();
 checkStart();
 
