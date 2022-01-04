@@ -68,7 +68,6 @@ function checkStart(n = 0) {
     if (n < 7 && cycleCount !== 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 70);
-        setTimeout(() => checkStart(n), 100);
     } else if (gameOver && n === 7) {
         circleSpin();
         checkStart(n + 1);
