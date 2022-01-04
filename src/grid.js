@@ -1,5 +1,15 @@
-export const GRID_X = 41;
-export const GRID_Y = 41;
+let gameBoard = document.getElementById("gameBoard");
+let gameBoardStyle = document.defaultView.getComputedStyle(gameBoard, null);
+let gameBoardWidth = gameBoardStyle.getPropertyValue("width").replace("px", "");
+let gameBoardHeight = gameBoardStyle.getPropertyValue("height").replace("px", "");
+
+export const GRID_X = gameBoardWidth / 16;
+export const GRID_Y = gameBoardHeight / 16;
+
+export function setGridSize(){
+    gameBoard.style.gridTemplateRows = "repeat(" + GRID_X + ", 1fr)";
+    gameBoard.style.gridTemplateColumns = "repeat(" + GRID_Y + ", 1fr)";
+}
 
 export function randomGridPosition() {
     return {
