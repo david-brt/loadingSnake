@@ -7,8 +7,8 @@ export const GRID_X = gameBoardWidth / 16;
 export const GRID_Y = gameBoardHeight / 16;
 
 export function setGridSize(){
-    gameBoard.style.gridTemplateRows = "repeat(" + GRID_X + ", 1fr)";
-    gameBoard.style.gridTemplateColumns = "repeat(" + GRID_Y + ", 1fr)";
+    gameBoard.style.gridTemplateColumns = "repeat(" + GRID_X + ", 1fr)";
+    gameBoard.style.gridTemplateRows = "repeat(" + GRID_Y + ", 1fr)";
 }
 
 export function randomGridPosition() {
