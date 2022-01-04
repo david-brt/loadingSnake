@@ -19,9 +19,9 @@ export function deathAnimation(n) {
     } else {
         for (let i = 0; i < snake.length; i++) {
             if (i < 12) {
-                snake[i].style.opacity = (100 - i * 6) / 100;
+                snake[i].style.opacity = (100 - i * 7) / 100;
             } else {
-                snake[i].style.opacity = 0.3;
+                snake[i].style.opacity = 0.2;
             }
         }
         food.style.opacity = 0.7;

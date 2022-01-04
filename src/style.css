@@ -18,7 +18,7 @@ body {
 .snake{
     background-color: #fff;
     border-radius: 50%;
-    opacity: 30%;
+    opacity: 20%;
 }
 
 .food{

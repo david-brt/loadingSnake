@@ -34,7 +34,7 @@ export function draw(gameBoard) {
             snakeElement.classList.add("snake");
             gameBoard.appendChild(snakeElement);
             if (i < 12) {
-                snakeElement.style.opacity = 100 - i * 6 + "%";
+                snakeElement.style.opacity = (100 - i * 7) / 100;
             }
         }
     }
