@@ -13,7 +13,7 @@ import { borderCollision, setGridSize } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
 import { circleSpin, deathAnimation } from "./animation.js";
 
-export let gameOver = false;
+export let gameOver = true;
 export const INITIAL_LENGTH = 7;
 const GAME_BOARD = document.getElementById("gameBoard");
 let lastRenderTime = 0;
