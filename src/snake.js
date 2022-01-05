@@ -2,10 +2,9 @@ import { INITIAL_LENGTH } from "./game.js"
 import { getInputdirection } from "./input.js";
 import { middleGridPosition, GRID_X, GRID_Y } from "./grid.js";
 
+const GRID_CENTER = middleGridPosition();
 export const SNAKE_SPEED = 20;
-export let snakeBody = [
-    middleGridPosition(),
-];
+export let snakeBody = GRID_CENTER;
 let newSegments = 0;
 
 export function update() {
@@ -63,7 +62,7 @@ export function snakeCollision() {
 
 export function reset(){
     snakeBody = [
-        { x: Math.floor(GRID_X / 2), y: Math.floor(GRID_Y / 2) }
+        GRID_CENTER
     ]
 }
 
