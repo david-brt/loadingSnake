@@ -3,15 +3,15 @@ import { randomGridPosition } from "./grid.js";
 import { foodPulse } from "./animation.js";
 import { gameOver } from './game.js'
 
-let food = generateFood();
+let food;
 const EXPANSION_RATE = 8;
 
 export function update() {
-    if (onSnake(food)) {
-        expandSnake(EXPANSION_RATE);
+    if(gameOver || food === undefined){
         food = generateFood();
     }
-    else if(gameOver){
+    else if (food !== undefined && onSnake(food)) {
+        expandSnake(EXPANSION_RATE);
         food = generateFood();
     }
 }
