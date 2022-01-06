@@ -7,10 +7,10 @@ let food;
 const EXPANSION_RATE = 8;
 
 export function update() {
-    if(gameOver || food === undefined){
+    if(gameOver){
         food = generateFood();
     }
-    else if (food !== undefined && onSnake(food)) {
+    else if (onSnake(food)) {
         expandSnake(EXPANSION_RATE);
         food = generateFood();
     }
