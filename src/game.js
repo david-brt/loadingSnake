@@ -69,7 +69,7 @@ function checkStart(n = 0) {
     if (n < 7 && cycleCount !== 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 70);
-    } else if (gameOver && n === 7) {
+    } else if (gameOver && n === 7 && cycleCount !== 0) {
         circleSpin();
         checkStart(n + 1);
     } else if (getInputdirection().x === 0 && getInputdirection().y === 0) {
@@ -79,5 +79,5 @@ function checkStart(n = 0) {
         gameOver = false;
         window.requestAnimationFrame(main);
     }
-    n++;
+    n++; //counts how often checkStart has been called, acts as a timer
 }
