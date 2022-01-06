@@ -4,7 +4,7 @@ import { middleGridPosition, GRID_X, GRID_Y } from "./grid.js";
 
 const GRID_CENTER = middleGridPosition();
 export const SNAKE_SPEED = 20;
-export let snakeBody = GRID_CENTER;
+export let snakeBody;
 let newSegments = 0;
 
 export function update() {
@@ -62,7 +62,7 @@ export function snakeCollision() {
 
 export function reset(){
     snakeBody = [
-        GRID_CENTER
+        snakeStartingPoint()
     ]
 }
 
@@ -76,4 +76,17 @@ function addSegments() {
     }
 
     newSegments = 0;
+}
+
+export function snakeStartingPoint() {
+    switch (true) {
+        case equalPositions(getInputdirection(), { x: -1, y: 0 }): //left arrow
+            return { x: GRID_CENTER.x - 1, y: GRID_CENTER.y + 2 };
+        case equalPositions(getInputdirection(), { x: 0, y: -1 }): //top arrow
+            return { x: GRID_CENTER.x - 1, y: GRID_CENTER.y - 2 };
+        case equalPositions(getInputdirection(), { x: 1, y: 0 }):  //right arrow
+            return { x: GRID_CENTER.x + 2, y: GRID_CENTER.y - 1 };
+        case equalPositions(getInputdirection(), { x: 0, y: 1 }):  //down arrow
+            return { x: GRID_CENTER.x + 2, y: GRID_CENTER.y + 1 };
+    }
 }
