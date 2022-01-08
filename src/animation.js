@@ -1,10 +1,10 @@
 export function circleSpin(){
     let div = document.createElement("div");
     document.getElementById("gameBoard").appendChild(div);
-    div.id = "spinner";
+    div.id = "snakeSpinner";
     for(let i=0; i < 8; i++){
         let div = document.createElement("div");
-        document.getElementById("spinner").appendChild(div);
+        document.getElementById("snakeSpinner").appendChild(div);
     }
 }
 
