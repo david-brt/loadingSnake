@@ -7,7 +7,8 @@
     "content_scripts": [
         {
             "matches": ["https://*.youtube.com/*"],
-            "js": ["content.js"]
+            "js": ["content.js"],
+            "run_at": "document_end"
         }
     ],
     "web_accessible_resources": [
@@ -18,6 +19,6 @@
         "input.js",
         "animation.js",
         "spinner.css",
-        "helloWorld.js"
+        "main.js"
       ]
 }
