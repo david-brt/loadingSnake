@@ -1,15 +1,4 @@
-body {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-color: #133;
-}
-
 #gameBoard{
-    background-color: #000;
     width: 512px;
     height: 512px;
     display: grid;

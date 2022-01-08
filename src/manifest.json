@@ -8,6 +8,7 @@
         {
             "matches": ["https://*.youtube.com/*"],
             "js": ["content.js"],
+            "css" : ["style.css", "spinner.css"],
             "run_at": "document_end"
         }
     ],
@@ -17,8 +18,6 @@
         "food.js",
         "grid.js",
         "input.js",
-        "animation.js",
-        "spinner.css",
-        "main.js"
+        "animation.js"
       ]
 }
