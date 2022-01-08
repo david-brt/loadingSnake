@@ -3,8 +3,8 @@ let gameBoardStyle = document.defaultView.getComputedStyle(gameBoard, null);
 let gameBoardWidth = gameBoardStyle.getPropertyValue("width").replace("px", "");
 let gameBoardHeight = gameBoardStyle.getPropertyValue("height").replace("px", "");
 
-export const GRID_X = gameBoardWidth / 16;
-export const GRID_Y = gameBoardHeight / 16;
+export const GRID_X = Math.floor(gameBoardWidth / 16);
+export const GRID_Y = Math.floor(gameBoardHeight / 16);
 
 export function setGridSize(){
     gameBoard.style.gridTemplateColumns = "repeat(" + GRID_X + ", 1fr)";
