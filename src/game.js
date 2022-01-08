@@ -4,7 +4,6 @@ import {
     SNAKE_SPEED,
     getSnakeHead,
     snakeCollision,
-    snakeBody,
     expandSnake,
     reset as resetSnake,
 } from "./snake.js";
@@ -32,7 +31,6 @@ function main(currentTime) {
     window.requestAnimationFrame(main);
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
     if (secondsSinceLastRender < 1 / SNAKE_SPEED) return;
-
     lastRenderTime = currentTime;
 
     update();
@@ -65,7 +63,7 @@ function resetGameBoard() {
     expandSnake(INITIAL_LENGTH);
 }
 
-function checkStart(n = 0) {
+export function checkStart(n = 0) {
     if (n < 7 && cycleCount !== 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 70);
