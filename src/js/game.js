@@ -20,7 +20,6 @@ let cycleCount = 0;
 
 setGridSize();
 circleSpin();
-checkStart();
 
 function main(currentTime) {
     if (gameOver) {
@@ -35,7 +34,7 @@ function main(currentTime) {
 
     update();
 
-    if (!gameOver) draw(cycleCount);
+    draw(cycleCount);
 
     cycleCount++;
 }
@@ -47,9 +46,11 @@ function update() {
 }
 
 function draw(cycleCount) {
-    GAME_BOARD.innerHTML = "";
-    drawFood(GAME_BOARD, cycleCount);
-    drawSnake(GAME_BOARD);
+    if (!gameOver) {
+        GAME_BOARD.innerHTML = "";
+        drawFood(GAME_BOARD, cycleCount);
+        drawSnake(GAME_BOARD);
+    }
 }
 
 function checkCollision() {

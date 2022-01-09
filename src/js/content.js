@@ -13,17 +13,14 @@ const observer = new MutationObserver((mutations) => {
                 gameBoardWidth = gameBoardStyle.getPropertyValue("width").replace("px", "");
                 gameBoardHeight = gameBoardStyle.getPropertyValue("height").replace("px", "");
                 injectGameBoard(videoPlayer);
-                import("./grid.js")
-                    .then((module) => {
-                    module.setGridSize();
-                });
                 import("./game.js")
                     .then((module) => {
                     module.checkStart();
                 });
             }
-          }
-    }});
+        }
+    }
+});
 
 observer.observe(document.body, {
     childList: true
@@ -38,7 +35,4 @@ function injectGameBoard(targetNode){
     gameBoard.id = "gameBoard";
     gameBoard.style.width = gameBoardWidth + "px";
     gameBoard.style.height = gameBoardHeight + "px";
-    gameBoard.style.position = "absolute";
-    gameBoard.style.zIndex = "10";
-    gameBoard.style.pointerEvents = "none";
 }
