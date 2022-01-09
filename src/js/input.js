@@ -24,7 +24,12 @@ document.addEventListener("keydown", (e) => {
             }
             break;
     }
-});
+    let arrowKeys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
+    if(arrowKeys.includes(e.key)) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+}, true);
 
 export function getInputdirection() {
     lastInputDirection = inputDirection;
