@@ -7,17 +7,17 @@
     "content_scripts": [
         {
             "matches": ["https://*.youtube.com/*"],
-            "js": ["content.js"],
-            "css" : ["style.css", "spinner.css"],
+            "js": ["src/js/content.js"],
+            "css": ["src/css/style.css", "src/css/spinner.css"],
             "run_at": "document_end"
         }
     ],
     "web_accessible_resources": [
-        "game.js",
-        "snake.js",
-        "food.js",
-        "grid.js",
-        "input.js",
-        "animation.js"
+        "src/js/game.js",
+        "src/js/snake.js",
+        "src/js/food.js",
+        "src/js/grid.js",
+        "src/js/input.js",
+        "src/js/animation.js"
       ]
 }
