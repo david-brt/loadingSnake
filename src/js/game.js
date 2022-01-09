@@ -5,6 +5,7 @@ import {
     getSnakeHead,
     snakeCollision,
     expandSnake,
+    equalPositions,
     reset as resetSnake,
 } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
@@ -64,12 +65,18 @@ function resetGameBoard() {
 }
 
 export function checkStart(n = 0) {
+    let isActive = (document.activeElement.id === "movie_player");
+
     if (n < 7 && cycleCount !== 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 70);
     } else if (gameOver && n === 7 && cycleCount !== 0) {
         checkStart(n + 1);
-    } else if (getInputdirection().x === 0 && getInputdirection().y === 0) {
+    } else if (
+        !isLoading ||
+        !isActive ||
+        equalPositions(getInputdirection(), { x: 0, y: 0 })
+    ) {
         setTimeout(() => checkStart(n), 200);
     } else {
         resetGameBoard();

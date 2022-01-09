@@ -1,3 +1,5 @@
+import { gameOver } from "./game.js";
+
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection;
 
@@ -25,7 +27,7 @@ document.addEventListener("keydown", (e) => {
             break;
     }
     let arrowKeys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
-    if(arrowKeys.includes(e.key)) {
+    if(arrowKeys.includes(e.key) && !gameOver) {
         e.stopPropagation();
         e.preventDefault();
     }
