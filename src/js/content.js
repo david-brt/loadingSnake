@@ -22,6 +22,12 @@ const observer = new MutationObserver((mutations) => {
     }
 });
 
+removeSpinner();
+
+import("./animation.js").then((animation) => {
+    animation.checkLoading();
+})
+
 observer.observe(document.body, {
     childList: true
   , subtree: true
@@ -35,4 +41,11 @@ function injectGameBoard(targetNode){
     gameBoard.id = "gameBoard";
     gameBoard.style.width = gameBoardWidth + "px";
     gameBoard.style.height = gameBoardHeight + "px";
+}
+
+function removeSpinner(){
+    let spinnerElements = document.getElementsByClassName("ytp-spinner-rotator");
+    for (let spinnerElement of spinnerElements){
+        spinnerElement.remove();
+    }
 }

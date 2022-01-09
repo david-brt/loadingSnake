@@ -1,3 +1,5 @@
+export let isLoading = true;
+
 export function circleSpin(){
     let div = document.createElement("div");
     document.getElementById("gameBoard").appendChild(div);
@@ -33,4 +35,16 @@ export function foodPulse(cycleCount) {
         document.getElementById("foodElement").style.opacity =
             (70 - (cycleCount % 8) * 8) / 100;
     }
+}
+
+export function checkLoading() {
+    let spinner = document.getElementsByClassName("ytp-spinner")[0];
+    spinner.addEventListener("animationstart", () => {
+        isLoading = true;
+        circleSpin();
+    });
+    spinner.addEventListener("animationcancel", () => {
+        isLoading = false;
+        document.getElementById("snakeSpinner").remove();
+    })
 }

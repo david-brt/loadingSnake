@@ -10,7 +10,7 @@ import {
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { borderCollision, setGridSize } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
-import { circleSpin, deathAnimation } from "./animation.js";
+import { isLoading, deathAnimation } from "./animation.js";
 
 export let gameOver = true;
 export const INITIAL_LENGTH = 7;
@@ -19,7 +19,6 @@ let lastRenderTime = 0;
 let cycleCount = 0;
 
 setGridSize();
-circleSpin();
 
 function main(currentTime) {
     if (gameOver) {
@@ -69,7 +68,6 @@ export function checkStart(n = 0) {
         deathAnimation(n);
         setTimeout(() => checkStart(n), 70);
     } else if (gameOver && n === 7 && cycleCount !== 0) {
-        circleSpin();
         checkStart(n + 1);
     } else if (getInputdirection().x === 0 && getInputdirection().y === 0) {
         setTimeout(() => checkStart(n), 200);
