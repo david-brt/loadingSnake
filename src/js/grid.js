@@ -7,9 +7,10 @@ let gridX = Math.floor(gameBoardWidth / 16);
 let gridY = Math.floor(gameBoardHeight / 16);
 
 window.onresize = setGridSize;
+document.onfullscreenchange = setGridSize;
+document.addEventListener('yt-navigate-finish', setGridSize);
 
 export function setGridSize(){
-    console.log("setting grid size");
     getGridSize();
     gameBoard.style.gridTemplateColumns = "repeat(" + gridX + ", 1fr)";
     gameBoard.style.gridTemplateRows = "repeat(" + gridY + ", 1fr)";

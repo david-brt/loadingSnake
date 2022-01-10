@@ -39,13 +39,16 @@ export function foodPulse(cycleCount) {
 
 export function checkLoading() {
     let spinner = document.getElementsByClassName("ytp-spinner")[0];
-    spinner.addEventListener("animationstart", () => {
-    if (isLoading) circleSpin();
-        isLoading = true;
-    });
-    spinner.addEventListener("animationcancel", () => {
-    let snakeSpinner = document.getElementById("snakeSpinner");
-    if (!isLoading) snakeSpinner.remove();
-        isLoading = false;
-    })
+    spinner.addEventListener("animationstart", addSnakeSpinner);
+    spinner.addEventListener("animationcancel", removeSnakeSpinner);
+}
+function removeSnakeSpinner(){
+    let snakeSpinner =document.getElementById("snakeSpinner")
+    if (snakeSpinner) snakeSpinner.remove();
+    isLoading = false;
+}
+
+function addSnakeSpinner() {
+    circleSpin();
+    isLoading = true;
 }
