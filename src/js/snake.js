@@ -2,9 +2,9 @@ import { INITIAL_LENGTH } from "./game.js"
 import { getInputdirection } from "./input.js";
 import { middleGridPosition, equalPositions } from "./grid.js";
 
-const GRID_CENTER = middleGridPosition();
 export const SNAKE_SPEED = 20;
 export let snakeBody;
+let gridCenter = middleGridPosition();
 let newSegments = 0;
 
 export function update() {
@@ -75,14 +75,15 @@ function addSegments() {
 }
 
 export function snakeStartingPoint() {
-    switch (true) {
+    gridCenter = middleGridPosition();
+        switch (true) {
         case equalPositions(getInputdirection(), { x: -1, y: 0 }): //left arrow
-            return { x: GRID_CENTER.x - 1, y: GRID_CENTER.y + 2 };
+            return { x: gridCenter.x - 1, y: gridCenter.y + 2 };
         case equalPositions(getInputdirection(), { x: 0, y: -1 }): //top arrow
-            return { x: GRID_CENTER.x - 1, y: GRID_CENTER.y - 2 };
+            return { x: gridCenter.x - 1, y: gridCenter.y - 2 };
         case equalPositions(getInputdirection(), { x: 1, y: 0 }):  //right arrow
-            return { x: GRID_CENTER.x + 2, y: GRID_CENTER.y - 1 };
+            return { x: gridCenter.x + 2, y: gridCenter.y - 1 };
         case equalPositions(getInputdirection(), { x: 0, y: 1 }):  //down arrow
-            return { x: GRID_CENTER.x + 2, y: GRID_CENTER.y + 1 };
+            return { x: gridCenter.x + 2, y: gridCenter.y + 1 };
     }
 }

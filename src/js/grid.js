@@ -1,36 +1,50 @@
 let gameBoard = document.getElementById("gameBoard");
-let gameBoardStyle = document.defaultView.getComputedStyle(gameBoard, null);
-let gameBoardWidth = gameBoardStyle.getPropertyValue("width").replace("px", "");
-let gameBoardHeight = gameBoardStyle.getPropertyValue("height").replace("px", "");
+let videoPlayer = document.getElementById("movie_player");
+let gameBoardStyle;
+let gameBoardWidth;
+let gameBoardHeight;
+let gridX = Math.floor(gameBoardWidth / 16);
+let gridY = Math.floor(gameBoardHeight / 16);
 
-export const GRID_X = Math.floor(gameBoardWidth / 16);
-export const GRID_Y = Math.floor(gameBoardHeight / 16);
+window.onresize = setGridSize;
 
 export function setGridSize(){
-    gameBoard.style.gridTemplateColumns = "repeat(" + GRID_X + ", 1fr)";
-    gameBoard.style.gridTemplateRows = "repeat(" + GRID_Y + ", 1fr)";
+    console.log("setting grid size");
+    getGridSize();
+    gameBoard.style.gridTemplateColumns = "repeat(" + gridX + ", 1fr)";
+    gameBoard.style.gridTemplateRows = "repeat(" + gridY + ", 1fr)";
+    gameBoard.style.width = gameBoardWidth + "px";
+    gameBoard.style.height = gameBoardHeight + "px";
 }
 
 export function randomGridPosition() {
     return {
-        x: Math.floor(Math.random() * GRID_X) + 1,
-        y: Math.floor(Math.random() * GRID_Y) + 1,
+        x: Math.floor(Math.random() * gridX) + 1,
+        y: Math.floor(Math.random() * gridY) + 1,
     };
 }
 
 export function middleGridPosition(){
-    return { x: Math.floor(GRID_X / 2), y: Math.floor(GRID_Y / 2) };
+    return { x: Math.floor(gridX / 2), y: Math.floor(gridY / 2) };
 }
 
 export function borderCollision(position) {
     return (
         position.x < 1 ||
-        position.x > GRID_X ||
+        position.x > gridX ||
         position.y < 1 ||
-        position.y > GRID_Y
+        position.y > gridY
     );
 }
 
 export function equalPositions(pos1, pos2) {
     return pos1.x === pos2.x && pos1.y === pos2.y;
+}
+
+function getGridSize(){
+    gameBoardStyle = document.defaultView.getComputedStyle(videoPlayer, null);
+    gameBoardWidth = gameBoardStyle.getPropertyValue("width").replace("px", "");
+    gameBoardHeight = gameBoardStyle.getPropertyValue("height").replace("px", "");
+    gridX = Math.floor(gameBoardWidth / 16);
+    gridY = Math.floor(gameBoardHeight / 16);
 }

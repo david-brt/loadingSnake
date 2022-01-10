@@ -18,8 +18,6 @@ const GAME_BOARD = document.getElementById("gameBoard");
 let lastRenderTime = 0;
 let cycleCount = 0;
 
-setGridSize();
-
 function main(currentTime) {
     if (gameOver) {
         setInputDirection({ x: 0, y: 0 });
@@ -58,6 +56,7 @@ function checkCollision() {
 
 function resetGameBoard() {
     GAME_BOARD.innerHTML = "";
+    setGridSize();
     resetSnake();
     updateFood();
     expandSnake(INITIAL_LENGTH);
