@@ -1,6 +1,6 @@
 import { INITIAL_LENGTH } from "./game.js"
 import { getInputdirection } from "./input.js";
-import { middleGridPosition, GRID_X, GRID_Y } from "./grid.js";
+import { middleGridPosition, equalPositions } from "./grid.js";
 
 const GRID_CENTER = middleGridPosition();
 export const SNAKE_SPEED = 20;
@@ -64,10 +64,6 @@ export function reset(){
     snakeBody = [
         snakeStartingPoint()
     ]
-}
-
-export function equalPositions(pos1, pos2) {
-    return pos1.x === pos2.x && pos1.y === pos2.y;
 }
 
 function addSegments() {
