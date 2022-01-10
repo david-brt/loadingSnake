@@ -1,4 +1,5 @@
 import { gameOver } from "./game.js";
+import { isLoading } from "./animation.js";
 
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection;
@@ -27,7 +28,12 @@ document.addEventListener("keydown", (e) => {
             break;
     }
     let arrowKeys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
-    if(arrowKeys.includes(e.key) && !gameOver) {
+    let isArrowKey = arrowKeys.includes(e.key);
+
+    if (
+        (isArrowKey && !gameOver) ||
+        (isArrowKey && isLoading)
+    ) {
         e.stopPropagation();
         e.preventDefault();
     }

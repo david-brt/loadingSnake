@@ -9,7 +9,7 @@
             "matches": ["https://*.youtube.com/*"],
             "js": ["src/js/content.js"],
             "css": ["src/css/style.css", "src/css/spinner.css"],
-            "run_at": "document_end"
+            "run_at": "document_start"
         }
     ],
     "web_accessible_resources": [
