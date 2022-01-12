@@ -1,23 +1,29 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "snake for yt",
     "description": "replaces yt loading animation with og circle and adds snake game",
     "version": "1.0",
     "permissions": ["activeTab"],
+    "action": {
+        "default_popup": "popup_ui/public/index.html"
+      },
     "content_scripts": [
         {
             "matches": ["https://*.youtube.com/*"],
-            "js": ["src/js/content.js"],
-            "css": ["src/css/style.css", "src/css/spinner.css"],
+            "js": ["content_scripts/js/content.js"],
+            "css": ["content_scripts/css/style.css", "content_scripts/css/spinner.css"],
             "run_at": "document_start"
         }
     ],
-    "web_accessible_resources": [
-        "src/js/game.js",
-        "src/js/snake.js",
-        "src/js/food.js",
-        "src/js/grid.js",
-        "src/js/input.js",
-        "src/js/animation.js"
-      ]
+    "web_accessible_resources": [{
+        "resources": [
+            "content_scripts/js/game.js",
+            "content_scripts/js/snake.js",
+            "content_scripts/js/food.js",
+            "content_scripts/js/grid.js",
+            "content_scripts/js/input.js",
+            "content_scripts/js/animation.js"
+        ],
+        "matches": ["https://*.youtube.com/*"]
+    }]
 }
