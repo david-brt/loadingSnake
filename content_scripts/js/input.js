@@ -1,10 +1,14 @@
-import { gameOver } from "./game.js";
+import { gameOver, newGame } from "./game.js";
 import { isLoading } from "./animation.js";
 
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection;
 
 document.addEventListener("keydown", (e) => {
+    let arrowKeys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
+    if (!arrowKeys.includes(e.key)) return;
+    if (!document.activeElement.id === "movie_player") return;
+
     switch (e.key) {
         case "ArrowLeft":
             if (lastInputDirection.x === 0) {
@@ -27,15 +31,15 @@ document.addEventListener("keydown", (e) => {
             }
             break;
     }
-    let arrowKeys = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
-    let isArrowKey = arrowKeys.includes(e.key);
 
     if (
-        (isArrowKey && !gameOver) ||
-        (isArrowKey && isLoading)
-    ) {
+        (!gameOver || isLoading)) {
         e.stopPropagation();
         e.preventDefault();
+    }
+
+    if((gameOver && isLoading)){
+        newGame();
     }
 }, true);
 

@@ -17,7 +17,7 @@ const observer = new MutationObserver((mutations) => {
                 removeSpinner();
                 import("./game.js")
                     .then((game) => {
-                    game.checkStart();
+                    game.newGame();
                 });
             }
         }

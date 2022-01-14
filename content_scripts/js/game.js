@@ -20,8 +20,8 @@ let cycleCount = 0;
 
 function main(currentTime) {
     if (gameOver) {
+        if (cycleCount !== 0) deathAnimation();
         setInputDirection({ x: 0, y: 0 });
-        checkStart();
         return;
     }
     window.requestAnimationFrame(main);
@@ -62,21 +62,10 @@ function resetGameBoard() {
     expandSnake(INITIAL_LENGTH);
 }
 
-export function checkStart(n = 0) {
-    let isActiveElement = (document.activeElement.id === "movie_player");
-    let isIdle = !isLoading || !isActiveElement || equalPositions(getInputdirection(), { x: 0, y: 0 });
+export function newGame() {
+if (equalPositions(getInputdirection(), { x: 0, y: 0 })) return;
 
-    if (n < 7 && cycleCount !== 0) {
-        deathAnimation(n);
-        setTimeout(() => checkStart(n), 70);
-    } else if (gameOver && n === 7 && cycleCount !== 0) {
-        checkStart(n + 1);
-    } else if (isIdle) {
-        setTimeout(() => checkStart(n), 200);
-    } else {
-        resetGameBoard();
-        gameOver = false;
-        window.requestAnimationFrame(main);
-    }
-    n++; //counts how often checkStart has been called, acts as a timer
+resetGameBoard();
+gameOver = false;
+window.requestAnimationFrame(main);
 }
