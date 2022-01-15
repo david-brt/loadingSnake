@@ -6,6 +6,8 @@
 }
 
 .snake{
+    width: 16px;
+    height: 16px;
     background-color: #fff;
     border-radius: 50%;
     opacity: 20%;
@@ -13,6 +15,8 @@
 
 .food{
     background-color: #fff;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     opacity: 10%;
 }
