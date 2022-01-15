@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "snake for yt",
-    "description": "replaces yt loading animation with og circle and adds snake game",
+    "description": "Replaces Youtube's loading animation with the original loading circle that turns into a snake game when an arrow key is pressed. Shift + arrow key starts a game when the video is not loading.",
     "version": "1.0",
     "permissions": ["activeTab"],
     "action": {

@@ -10,7 +10,7 @@ import {
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { borderCollision, setGridSize, equalPositions } from "./grid.js";
 import { getInputdirection, setInputDirection } from "./input.js";
-import { isLoading, deathAnimation } from "./animation.js";
+import { deathAnimation } from "./animation.js";
 
 export let gameOver = true;
 export const INITIAL_LENGTH = 7;
@@ -21,7 +21,6 @@ let cycleCount = 0;
 function main(currentTime) {
     if (gameOver) {
         if (cycleCount !== 0) deathAnimation();
-        setInputDirection({ x: 0, y: 0 });
         return;
     }
     window.requestAnimationFrame(main);

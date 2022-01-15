@@ -33,12 +33,11 @@ document.addEventListener("keydown", (e) => {
     }
 
     if (
-        (!gameOver || isLoading)) {
+        (!gameOver || isLoading || e.shiftKey)) {
         e.stopPropagation();
         e.preventDefault();
     }
-
-    if((gameOver && isLoading)){
+    if((gameOver && (isLoading || e.shiftKey))){
         newGame();
     }
 }, true);
