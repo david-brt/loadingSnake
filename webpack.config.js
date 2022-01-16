@@ -47,5 +47,13 @@ module.exports = {
         new webpack.optimize.LimitChunkCountPlugin({
             maxChunks: 1
           })
-    ]
+    ],
+    devtool: 'cheap-module-source-map',
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
+        port: 9000,
+      },
 }
