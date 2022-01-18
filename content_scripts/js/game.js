@@ -6,10 +6,11 @@ import {
     snakeCollision,
     expandSnake,
     reset as resetSnake,
+    snakeBody,
 } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
-import { borderCollision, setGridSize, equalPositions } from "./grid.js";
-import { getInputdirection, setInputDirection } from "./input.js";
+import { borderCollision, setGridSize, equalPositions, gridX, gridY } from "./grid.js";
+import { getInputdirection } from "./input.js";
 import { deathAnimation } from "./animation.js";
 
 export let gameOver = true;
@@ -18,16 +19,26 @@ const GAME_BOARD = document.getElementById("gameBoard");
 let lastRenderTime = 0;
 let cycleCount = 0;
 
+chrome.storage.sync.set({["score"]: "--"})
+window.onresize = setGridSize;
+document.onfullscreenchange = setGridSize;
+document.addEventListener('yt-navigate-finish', resetGameBoard);
+
 function main(currentTime) {
     if (gameOver) {
-        if (cycleCount !== 0) deathAnimation();
+        cycleCount = 0;
+        if (lastRenderTime !== 0) {
+            chrome.storage.sync.set({["score"]: gameScore()}, () => {
+                chrome.runtime.sendMessage("score updated");
+            })
+        }
+        deathAnimation();
         return;
     }
     window.requestAnimationFrame(main);
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
     if (secondsSinceLastRender < 1 / SNAKE_SPEED) return;
     lastRenderTime = currentTime;
-
     update();
 
     draw(cycleCount);
@@ -59,6 +70,10 @@ function resetGameBoard() {
     resetSnake();
     updateFood();
     expandSnake(INITIAL_LENGTH);
+}
+
+function gameScore(){
+    return  Math.floor((snakeBody.length - 8) * 10 / Math.log(gridX * gridY));
 }
 
 export function newGame() {

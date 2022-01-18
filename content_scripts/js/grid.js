@@ -3,12 +3,8 @@ let videoPlayer = document.getElementById("movie_player");
 let gameBoardStyle;
 let gameBoardWidth;
 let gameBoardHeight;
-let gridX = Math.floor(gameBoardWidth / 16);
-let gridY = Math.floor(gameBoardHeight / 16);
-
-window.onresize = setGridSize;
-document.onfullscreenchange = setGridSize;
-document.addEventListener('yt-navigate-finish', setGridSize);
+export let gridX = Math.floor(gameBoardWidth / 16);
+export let gridY = Math.floor(gameBoardHeight / 16);
 
 export function setGridSize(){
     getGridSize();

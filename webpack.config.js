@@ -4,9 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
     entry: {
         popup: './popup_ui/src/popup.jsx',
         content: './content_scripts/js/content.js',
+        bachground: './background.js'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -21,14 +23,14 @@ module.exports = {
                  options: {
                      presets: [
                          '@babel/preset-env',
-                         '@babel/preset-react'
+                         ["@babel/preset-react", {"runtime": "automatic"}]
                      ]
                  }
              }
         },
         {
             test: /\.(css)$/,
-            use: ['css-loader']
+            use: ['style-loader', 'css-loader']
         }
     ]
     },
@@ -51,7 +53,8 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     devServer: {
         static: {
-          directory: path.join(__dirname, 'public'),
+            directory: path.resolve(__filename, 'manifest.json'),
+            watch: false,
         },
         compress: true,
         port: 9000,

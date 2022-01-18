@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+.scoreBoard {
+    text-align: center;
+    font-size: 18px;
+    font-family:'Comfortaa', 'sans-serif';
+}
