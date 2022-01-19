@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack serve"
+    "start": "webpack serve"
   },
   "author": "David Barth",
   "license": "MIT",

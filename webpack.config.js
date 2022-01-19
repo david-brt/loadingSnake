@@ -8,9 +8,9 @@ module.exports = {
     entry: {
         popup: './popup_ui/src/popup.jsx',
         content: './content_scripts/js/content.js',
-        bachground: './background.js'
     },
     output: {
+        publicPath: "",
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js',
     },
@@ -42,7 +42,7 @@ module.exports = {
         new CopyPlugin({
             patterns:[
                 {from: './assets'},
-                {from: './build.manifest.json', to: 'manifest.json'},
+                {from: './manifest.json'},
                 {from: './content_scripts/css', to: 'css'}
             ]
         }),
@@ -52,6 +52,9 @@ module.exports = {
     ],
     devtool: 'cheap-module-source-map',
     devServer: {
+        devMiddleware: {
+            writeToDisk: true,
+        },
         static: {
             directory: path.resolve(__filename, 'manifest.json'),
             watch: false,
