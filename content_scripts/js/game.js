@@ -19,7 +19,7 @@ const GAME_BOARD = document.getElementById("gameBoard");
 let lastRenderTime = 0;
 let cycleCount = 0;
 
-chrome.storage.sync.set({["score"]: "--"})
+chrome.storage.sync.set({["score"]: 0});
 window.onresize = setGridSize;
 document.onfullscreenchange = setGridSize;
 document.addEventListener('yt-navigate-finish', resetGameBoard);
