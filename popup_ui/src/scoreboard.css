@@ -1,7 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
-
 .scoreBoard {
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    font-size: 18px;
-    font-family:'Comfortaa', 'sans-serif';
+    gap: 10px;
+    color: #ffffee;
+}
+
+.scoreTile {
+    background-color: #c1cc99;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.scoreCount {
+    font-size: 2rem;
 }

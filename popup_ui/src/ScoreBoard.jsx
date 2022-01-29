@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './scoreboard.css';
 
 
-function ScoreBoard(){
+function ScoreBoard() {
     const [score, setScore] = useState(0);
     const [highscore, setHighscore] = useState(0);
 
@@ -10,23 +10,28 @@ function ScoreBoard(){
         getScore();
     }, [score]);
 
-    async function getScore(){
+    async function getScore() {
         let { score } = await chrome.storage.sync.get("score");
         setScore(score);
         let { highscore } = await chrome.storage.local?.get("highscore");
-        if(highscore === undefined){
+        if (highscore === undefined) {
             await chrome.storage.local.set({ "highscore": score });
             highscore = 0;
-        } else if (score > highscore){
+        } else if (score > highscore) {
             await chrome.storage.local.set({ "highscore": score });
         };
         setHighscore(highscore);
     }
 
     return (
-        <div className = "scoreBoard">
-            <div>Score: {score}</div>
-            <div>Highscore: {highscore}</div>
+        <div className="scoreBoard">
+            <div className="scoreTile">
+                <div>Score</div>
+                <div className='scoreCount'>{score}</div>
+            </div>
+            <div className="scoreTile">
+                <div>Highscore</div>
+                <div className='scoreCount'>{highscore}</div></div>
         </div>
     )
 }
