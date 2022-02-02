@@ -1,22 +1,22 @@
-#gameBoard{
-    position:absolute;
-    display: grid;
-    z-index: 10;
-    pointer-events: none;
+#gameBoard {
+  position: absolute;
+  display: grid;
+  z-index: 10;
+  pointer-events: none;
 }
 
-.snake{
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: 20%;
+.snake {
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 20%;
 }
 
-.food{
-    background-color: #fff;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    opacity: 10%;
+.food {
+  background-color: #fff;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  opacity: 10%;
 }
