@@ -1,0 +1,40 @@
+.scoreBoard {
+  margin: 20px 0px 20px 0px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.scoreTile {
+  background-color: #c1cc99;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.scoreCount {
+  font-size: 2rem;
+}
+
+.menuWrapper {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 210px;
+  height: 2em;
+  margin: auto;
+  background-color: #c1cc99;
+  border-radius: 10px;
+}
+
+.rightArrow {
+  height: 1em;
+  width: 1em;
+}

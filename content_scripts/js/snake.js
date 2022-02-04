@@ -6,6 +6,14 @@ export const SNAKE_SPEED = 20;
 export let snakeBody;
 let gridCenter = middleGridPosition();
 let newSegments = 0;
+let skin = '#ffffff';
+
+chrome.runtime.onMessage.addListener((msg) => {
+  let color = msg.color;
+  if (color) {
+    skin = color;
+  }
+});
 
 export function update() {
   addSegments();
@@ -31,6 +39,7 @@ export function draw(gameBoard) {
       snakeElement.style.gridColumnStart = snakeBody[i].x;
       snakeElement.style.gridRowStart = snakeBody[i].y;
       snakeElement.classList.add('snake');
+      setSkin(snakeElement);
       gameBoard.appendChild(snakeElement);
       if (i < 12) {
         snakeElement.style.opacity = (100 - i * 7) / 100;
@@ -62,6 +71,10 @@ export function snakeCollision() {
 
 export function reset() {
   snakeBody = [snakeStartingPoint()];
+}
+
+function setSkin(snakeElement) {
+  snakeElement.style.backgroundColor = skin;
 }
 
 function addSegments() {

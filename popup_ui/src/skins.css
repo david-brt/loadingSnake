@@ -1,0 +1,25 @@
+.skinList {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.skinWrapper {
+  background-color: #c1cc99;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 2em;
+}
+
+.skinWrapper :hover {
+  cursor: pointer;
+}
+
+.skinContent {
+  margin: 0 10px;
+}
