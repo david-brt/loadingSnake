@@ -6,12 +6,13 @@ export const SNAKE_SPEED = 20;
 export let snakeBody;
 let gridCenter = middleGridPosition();
 let newSegments = 0;
-let skin = '#ffffff';
+let skin = (await chrome.storage.local.get('color')).color;
 
 chrome.runtime.onMessage.addListener((msg) => {
   let color = msg.color;
   if (color) {
     skin = color;
+    chrome.storage.local.set({ color: color });
   }
 });
 

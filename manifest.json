@@ -13,7 +13,6 @@
       "128": "icons/popup_icon_128.png"
     }
   },
-
   "content_scripts": [
     {
       "matches": ["https://*.youtube.com/*"],
