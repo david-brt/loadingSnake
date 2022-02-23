@@ -16,6 +16,10 @@
   height: 2em;
 }
 
+.activeSkinWrapper {
+  outline: 5px solid #3b6b4d;
+}
+
 .skinWrapper :hover {
   cursor: pointer;
 }
