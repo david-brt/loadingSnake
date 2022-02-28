@@ -1,3 +1,5 @@
+import { skin } from './snake.js';
+
 export let isLoading = true;
 
 export function checkLoading() {
@@ -12,7 +14,10 @@ export function circleSpin() {
   div.id = 'snakeSpinner';
   for (let i = 0; i < 8; i++) {
     let div = document.createElement('div');
-    document.getElementById('snakeSpinner').appendChild(div);
+    let spinnerSegment = document
+      .getElementById('snakeSpinner')
+      .appendChild(div);
+    spinnerSegment.style.setProperty('--spinnerColor', skin);
   }
 }
 

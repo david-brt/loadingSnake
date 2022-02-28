@@ -1,4 +1,4 @@
-import { onSnake, expandSnake } from './snake.js';
+import { onSnake, expandSnake, skin } from './snake.js';
 import { randomGridPosition } from './grid.js';
 import { foodPulse } from './animation.js';
 import { gameOver } from './game.js';
@@ -20,6 +20,7 @@ export function draw(gameBoard, cycleCount) {
   foodElement.style.gridColumnStart = food.x;
   foodElement.style.gridRowStart = food.y;
   foodElement.classList.add('food');
+  foodElement.style.backgroundColor = skin;
   gameBoard.appendChild(foodElement).setAttribute('id', 'foodElement');
   foodPulse(cycleCount);
 }
