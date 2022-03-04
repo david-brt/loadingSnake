@@ -15,17 +15,17 @@ function Home() {
     let { score } = await chrome.storage.sync.get('score');
     setScore(score);
     let { highscore } = await chrome.storage.local?.get('highscore');
-    if (highscore === undefined) {
-      await chrome.storage.local.set({ highscore: score });
+    if (!highscore) {
+      chrome.storage.local.set({ highscore: score });
       highscore = 0;
     } else if (score > highscore) {
-      await chrome.storage.local.set({ highscore: score });
+      chrome.storage.local.set({ highscore: score });
     }
     setHighscore(highscore);
   }
 
   return (
-    <div>
+    <>
       <div className="scoreBoard">
         <div className="scoreTile">
           <div>Score</div>
@@ -45,7 +45,7 @@ function Home() {
           />
         </div>
       </Link>
-    </div>
+    </>
   );
 }
 
