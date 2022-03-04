@@ -26,13 +26,18 @@ function Skins() {
     <ul className="skinList">
       {skins.map((skin) => (
         <li
+          onClick={() => updateSkin(skin)}
           key={skin.id}
           className={
             'skinWrapper' + (skin.id == activeSkin ? ' activeSkinWrapper' : '')
           }
         >
-          <div className="skinContent" onClick={() => updateSkin(skin)}>
-            {skin.name}
+          <div className="skinContent">
+            <span
+              className="colorIndicator"
+              style={{ backgroundColor: skin.color }}
+            ></span>
+            <span>{skin.name}</span>
           </div>
         </li>
       ))}
