@@ -28,6 +28,15 @@
   margin: 0 10px;
 }
 
+.back {
+  background-color: #c1cc99;
+}
+
+.leftArrow {
+  width: 1em;
+  height: 1em;
+}
+
 .colorIndicator {
   display: inline-block;
   width: 12px;

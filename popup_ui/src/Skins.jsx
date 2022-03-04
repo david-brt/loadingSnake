@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './skins.css';
 
 function Skins() {
+  const leftArrow = require('../../assets/popup/arrow_left.svg').default;
   const [activeSkin, setActiveSkin] = useState(
     chrome.storage.local.get('score').score
   );
@@ -23,25 +25,34 @@ function Skins() {
     chrome.storage.local.set({ skin: skin.id });
   }
   return (
-    <ul className="skinList">
-      {skins.map((skin) => (
-        <li
-          onClick={() => updateSkin(skin)}
-          key={skin.id}
-          className={
-            'skinWrapper' + (skin.id == activeSkin ? ' activeSkinWrapper' : '')
-          }
-        >
-          <div className="skinContent">
-            <span
-              className="colorIndicator"
-              style={{ backgroundColor: skin.color }}
-            ></span>
-            <span>{skin.name}</span>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <>
+      <Link to="/" className="back">
+        <svg
+          className="leftArrow"
+          dangerouslySetInnerHTML={{ __html: leftArrow }}
+        ></svg>
+      </Link>
+      <ul className="skinList">
+        {skins.map((skin) => (
+          <li
+            onClick={() => updateSkin(skin)}
+            key={skin.id}
+            className={
+              'skinWrapper' +
+              (skin.id == activeSkin ? ' activeSkinWrapper' : '')
+            }
+          >
+            <div className="skinContent">
+              <span
+                className="colorIndicator"
+                style={{ backgroundColor: skin.color }}
+              ></span>
+              <span>{skin.name}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
