@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
+import rightArrow from '../../assets/popup/arrow_right.svg';
 
 function Home() {
-  const rightArrow = require('../../assets/popup/arrow_right.svg').default;
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
 
@@ -39,10 +39,9 @@ function Home() {
       <Link to="/skins" className="menuWrapper">
         <div className="menuItem">
           <span>Change Snake Skin</span>
-          <svg
-            className="rightArrow"
-            dangerouslySetInnerHTML={{ __html: rightArrow }}
-          />
+          <span>
+            <img className="rightArrow" src={rightArrow} />
+          </span>
         </div>
       </Link>
     </>

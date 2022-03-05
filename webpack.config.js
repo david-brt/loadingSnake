@@ -36,7 +36,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: 'raw-loader'
+        use: 'svg-url-loader'
       }
     ]
   },
