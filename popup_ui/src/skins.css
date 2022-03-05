@@ -1,4 +1,4 @@
-.skinList {
+.list {
   list-style: none;
   padding: 0;
   margin: 20px auto;
@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.skinWrapper {
+.listEntry {
   background-color: #c1cc99;
   border-radius: 10px;
   display: flex;
@@ -20,7 +20,7 @@
   outline: 5px solid #3b6b4d;
 }
 
-.skinWrapper :hover {
+.listEntry :hover {
   cursor: pointer;
 }
 
@@ -29,10 +29,12 @@
 }
 
 .back {
-  background-color: #c1cc99;
+  display: flex;
+  justify-content: center;
 }
 
 .leftArrow {
+  margin: 0 10px;
   width: 1em;
   height: 1em;
 }

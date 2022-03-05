@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './skins.css';
+import leftArrow from '../../assets/popup/arrow_left.svg';
 
 function Skins() {
-  const leftArrow = require('../../assets/popup/arrow_left.svg').default;
   const [activeSkin, setActiveSkin] = useState(
     chrome.storage.local.get('score').score
   );
@@ -26,20 +26,21 @@ function Skins() {
   }
   return (
     <>
-      <Link to="/" className="back">
-        <svg
-          className="leftArrow"
-          dangerouslySetInnerHTML={{ __html: leftArrow }}
-        ></svg>
-      </Link>
-      <ul className="skinList">
+      <ul className="list">
+        <li className="listEntry">
+          <Link to="/" className="back">
+            <span className="leftArrow">
+              <img src={leftArrow} />
+            </span>
+            <span>Back</span>
+          </Link>
+        </li>
         {skins.map((skin) => (
           <li
             onClick={() => updateSkin(skin)}
             key={skin.id}
             className={
-              'skinWrapper' +
-              (skin.id == activeSkin ? ' activeSkinWrapper' : '')
+              'listEntry' + (skin.id == activeSkin ? ' activeSkinWrapper' : '')
             }
           >
             <div className="skinContent">
