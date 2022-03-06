@@ -28,12 +28,10 @@
   margin: 0 10px;
 }
 
-.back {
-  display: flex;
-  justify-content: center;
-}
-
 .leftArrow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin: 0 10px;
   width: 1em;
   height: 1em;

@@ -27,14 +27,14 @@ function Skins() {
   return (
     <>
       <ul className="list">
-        <li className="listEntry">
-          <Link to="/" className="back">
-            <span className="leftArrow">
-              <img src={leftArrow} />
+        <Link to="/">
+          <li className="listEntry">
+            <span>
+              <img className="leftArrow" src={leftArrow} />
             </span>
             <span>Back</span>
-          </Link>
-        </li>
+          </li>
+        </Link>
         {skins.map((skin) => (
           <li
             onClick={() => updateSkin(skin)}
