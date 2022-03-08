@@ -4,6 +4,12 @@
   "description": "Replaces Youtube's loading animation with the original loading circle that turns into a snake game when an arrow key is pressed. Shift + arrow key starts a game when the video is not loading.",
   "version": "1.0",
   "permissions": ["activeTab", "storage"],
+  "web_accessible_resources": [
+    {
+      "resources": ["skins/shapes.json"],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
   "action": {
     "default_popup": "index.html",
     "default_icon": {

@@ -8,8 +8,6 @@
 .snake {
   width: 16px;
   height: 16px;
-  background-color: #fff;
-  border-radius: 50%;
   opacity: 20%;
 }
 

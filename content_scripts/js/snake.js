@@ -4,6 +4,8 @@ import { middleGridPosition, equalPositions } from './grid.js';
 
 export const SNAKE_SPEED = 20;
 export let snakeBody;
+const shapesUrl = chrome.runtime.getURL('/skins/shapes.json');
+let shapeSvg = getShape('circle');
 let gridCenter = middleGridPosition();
 let newSegments = 0;
 export let skin = (await chrome.storage.local.get('color')).color;
@@ -40,8 +42,9 @@ export function draw(gameBoard) {
       const snakeElement = document.createElement('div');
       snakeElement.style.gridColumnStart = snakeBody[i].x;
       snakeElement.style.gridRowStart = snakeBody[i].y;
+      snakeElement.innerHTML = shapeSvg;
+      snakeElement.style.fill = skin;
       snakeElement.classList.add('snake');
-      setSkin(snakeElement);
       gameBoard.appendChild(snakeElement);
       if (i < 12) {
         snakeElement.style.opacity = (100 - i * 7) / 100;
@@ -75,8 +78,10 @@ export function reset() {
   snakeBody = [snakeStartingPoint()];
 }
 
-function setSkin(snakeElement) {
-  snakeElement.style.backgroundColor = skin;
+async function getShape(shape) {
+  let shapes = await fetch(shapesUrl);
+  shapes = await shapes.json();
+  shapeSvg = shapes[shape];
 }
 
 function addSegments() {
