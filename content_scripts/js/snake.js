@@ -42,9 +42,13 @@ export function draw(gameBoard) {
       const snakeElement = document.createElement('div');
       snakeElement.style.gridColumnStart = snakeBody[i].x;
       snakeElement.style.gridRowStart = snakeBody[i].y;
-      snakeElement.innerHTML = shapeSvg;
-      snakeElement.style.fill = skin;
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.viewBox.baseVal.width = 8;
+      svg.viewBox.baseVal.height = 8;
+      svg.innerHTML = shapeSvg;
+      svg.style.fill = skin;
       snakeElement.classList.add('snake');
+      snakeElement.appendChild(svg);
       gameBoard.appendChild(snakeElement);
       if (i < 12) {
         snakeElement.style.opacity = (100 - i * 7) / 100;
