@@ -1,6 +1,6 @@
 {
   "circle": "<circle cx='4' cy='4' r='4'/>",
   "pentagon": "<polygon points='4, 0 7.80, 2.76 6.35, 7.24 1.65, 7.24 0.2, 2.76'/>",
-  "star": "<polygon points='4, 0 1.65, 7.24 7.80, 2.76 0.2, 2.76 6.35, 7.24'/>",
-  "square_90": "<polygon points='4, 0 8, 4 4, 8 0, 4'/>"
+  "square_90": "<polygon points='4, 0 8, 4 4, 8 0, 4'/>",
+  "star": "<polygon points='4, 0 1.65, 7.24 7.80, 2.76 0.2, 2.76 6.35, 7.24'/>"
 }

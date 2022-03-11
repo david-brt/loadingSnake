@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Shapes } from './Shapes.jsx';
 import './skins.css';
 import leftArrow from '../../assets/popup/arrow_left.svg';
 
@@ -15,7 +15,7 @@ function Skins() {
 
   useEffect(() => {
     chrome.storage.local.get('skin').then((skin) => setActiveSkin(skin.skin));
-  });
+  }, []);
 
   function updateSkin(skin) {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -35,6 +35,7 @@ function Skins() {
             <span>Back</span>
           </li>
         </Link>
+        <Shapes />
         {skins.map((skin) => (
           <li
             onClick={() => updateSkin(skin)}
