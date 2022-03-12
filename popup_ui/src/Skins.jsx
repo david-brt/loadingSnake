@@ -5,9 +5,7 @@ import './skins.css';
 import leftArrow from '../../assets/popup/arrow_left.svg';
 
 function Skins() {
-  const [activeSkin, setActiveSkin] = useState(
-    chrome.storage.local.get('score').score
-  );
+  const [activeSkin, setActiveSkin] = useState();
   const skins = [
     { id: 0, color: '#ffffff', name: 'White' },
     { id: 1, color: '#000000', name: 'Black' }
@@ -41,7 +39,7 @@ function Skins() {
             onClick={() => updateSkin(skin)}
             key={skin.id}
             className={
-              'listEntry' + (skin.id == activeSkin ? ' activeSkinWrapper' : '')
+              'listEntry' + (skin.id == activeSkin ? ' activeWrapper' : '')
             }
           >
             <div className="skinContent">
