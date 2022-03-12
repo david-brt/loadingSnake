@@ -7,7 +7,7 @@
 }
 
 .scoreTile {
-  background-color: #c1cc99;
+  background-color: var(--lightGreen);
   width: 100px;
   height: 100px;
   border-radius: 10px;
@@ -30,7 +30,7 @@
   width: 210px;
   height: 2em;
   margin: auto;
-  background-color: #c1cc99;
+  background-color: var(--lightGreen);
   border-radius: 10px;
 }
 

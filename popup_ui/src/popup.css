@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
+:root {
+  --offWhite: #ffffee;
+  --lightGreen: #c1cc99;
+  --darkGreen: #3b6b4d;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-size: 16px;
   font-family: 'Poppins', 'sans-serif';
-  background-color: #ffffee;
-  color: #ffffee;
+  background-color: var(--offWhite);
+  color: var(--offWhite);
   width: 250px;
   height: 170px;
 }
 
 a {
   text-decoration: none;
-  color: #ffffee;
+  color: var(--offWhite);
 }
