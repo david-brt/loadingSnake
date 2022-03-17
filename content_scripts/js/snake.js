@@ -4,9 +4,9 @@ import { middleGridPosition, equalPositions } from './grid.js';
 
 export const SNAKE_SPEED = 20;
 export let snakeBody;
-const shapesUrl = chrome.runtime.getURL('/skins/shapes.json');
-let shapeSvg = await chrome.storage.local.get('shape').then((shape) => {
-  return getShape(shape.shape);
+const skinsUrl = chrome.runtime.getURL('/skins/skins.json');
+let shapeSvg = await chrome.storage.local.get('shape').then(({ shape }) => {
+  return getShape(shape);
 });
 let gridCenter = middleGridPosition();
 let newSegments = 0;
@@ -22,7 +22,6 @@ chrome.runtime.onMessage.addListener((msg) => {
     getShape(shape).then((shape) => {
       shapeSvg = shape;
     });
-    console.log(getShape(shape));
     chrome.storage.local.set({ shape: shape });
   }
 });
@@ -91,10 +90,9 @@ export function reset() {
 }
 
 async function getShape(shape) {
-  let shapes = await fetch(shapesUrl);
-  shapes = await shapes.json();
-  console.log(shapes[shape]);
-  return shapes[shape];
+  let skins = await fetch(skinsUrl);
+  skins = await skins.json();
+  return skins.shapes[shape];
 }
 
 function addSegments() {

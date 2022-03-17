@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
-export function Shapes() {
-  const shapesUrl = chrome.runtime.getURL('/skins/shapes.json');
+export function Shapes({ skinsUrl }) {
   //refresh shapes once fetch value is available
   const [shapes, setShapes] = useState({});
   const [activeShape, setActiveShape] = useState();
 
-  //fetch shapes on mount
+  //get shapes on mount
   useEffect(async () => {
-    let shapes = await fetch(shapesUrl);
-    shapes = await shapes.json();
-    setShapes(shapes);
+    let skins = await fetch(skinsUrl);
+    skins = await skins.json();
+    setShapes(skins.shapes);
   }, []);
 
   //get active shape on mount
   useEffect(() => {
-    chrome.storage.local.get('shape').then((shape) => {
-      setActiveShape(shape.shape);
+    chrome.storage.local.get('shape').then(({ shape }) => {
+      setActiveShape(shape);
     });
   }, []);
 

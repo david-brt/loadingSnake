@@ -4,25 +4,11 @@ import { Link } from 'react-router-dom';
 import { Shapes } from './Shapes.jsx';
 import './skins.css';
 import leftArrow from '../../assets/popup/arrow_left.svg';
+import { skin } from '../../content_scripts/js/snake.js';
 
 function Skins() {
-  const [activeSkin, setActiveSkin] = useState();
-  const skins = [
-    { id: 0, color: '#ffffff', name: 'White' },
-    { id: 1, color: '#000000', name: 'Black' }
-  ];
+  const skinsUrl = chrome.runtime.getURL('/skins/skins.json');
 
-  useEffect(() => {
-    chrome.storage.local.get('skin').then((skin) => setActiveSkin(skin.skin));
-  }, []);
-
-  function updateSkin(skin) {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      chrome.tabs.sendMessage(tabs[0].id, { color: skin.color });
-    });
-    setActiveSkin(skin.id);
-    chrome.storage.local.set({ skin: skin.id });
-  }
   return (
     <>
       <ul className="list">
@@ -34,8 +20,8 @@ function Skins() {
             <span>Back</span>
           </li>
         </Link>
-        <Shapes />
-        <Colors skins={skins} updateSkin={updateSkin} activeSkin={activeSkin} />
+        <Shapes skinsUrl={skinsUrl} />
+        <Colors skinsUrl={skinsUrl} />
       </ul>
     </>
   );
