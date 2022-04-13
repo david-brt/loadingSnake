@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import skins from './Skins.module.css';
 export function Colors({ update, colors, activeColor }) {
   return (
     <>
@@ -7,14 +8,17 @@ export function Colors({ update, colors, activeColor }) {
           onClick={() => update('color', color)}
           key={color}
           className={
-            'listEntry' + (color == activeColor ? ' activeWrapper' : '')
+            skins['list-entry'] +
+            ' ' +
+            (color == activeColor ? skins['active-element'] : '')
           }
         >
-          <div className="skinContent">
+          <div className={skins['skin-content']}>
             <span
-              className="colorIndicator"
+              title={color}
+              className={skins['color-preview']}
               style={{
-                backgroundColor: color
+                backgroundColor: colors[color]
               }}
             ></span>
             <span>{color}</span>

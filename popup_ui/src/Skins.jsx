@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Shapes } from './Shapes.jsx';
 import { Colors } from './Colors.jsx';
-import './skins.css';
+import skinStyle from './Skins.module.css';
 import leftArrow from '../../assets/popup/arrow_left.svg';
 
 function Skins() {
@@ -51,11 +51,11 @@ function Skins() {
 
   return (
     <>
-      <ul className="list">
+      <ul className={skinStyle.list}>
         <Link to="/">
-          <li className="listEntry">
+          <li className={skinStyle['list-entry']}>
             <span>
-              <img className="leftArrow" src={leftArrow} />
+              <img className={skinStyle['arrow-left']} src={leftArrow} />
             </span>
             <span>Back</span>
           </li>

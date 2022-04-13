@@ -8,13 +8,13 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px 20px;
   font-size: 16px;
   font-family: 'Poppins', 'sans-serif';
   background-color: var(--offWhite);
   color: var(--offWhite);
   width: 250px;
-  height: 170px;
+  height: auto;
 }
 
 a {

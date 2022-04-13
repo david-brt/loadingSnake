@@ -1,0 +1,18 @@
+.wrapper {
+  margin: 0 0 1em 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.tile {
+  background-color: var(--lightGreen);
+  width: 50%;
+  aspect-ratio: 10/9;
+  border-radius: 10px;
+}
+
+.counter {
+  font-size: 2rem;
+}

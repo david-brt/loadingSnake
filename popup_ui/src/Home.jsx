@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './home.css';
+import menu from './Menu.module.css';
+import scoreboard from './Scoreboard.module.css';
 import rightArrow from '../../assets/popup/arrow_right.svg';
 
 function Home() {
@@ -17,7 +18,7 @@ function Home() {
     let { highscore } = await chrome.storage.local?.get('highscore');
     if (!highscore) {
       chrome.storage.local.set({ highscore: score });
-      highscore = 0;
+      setHighscore(0);
     } else if (score > highscore) {
       chrome.storage.local.set({ highscore: score });
     }
@@ -26,21 +27,21 @@ function Home() {
 
   return (
     <>
-      <div className="scoreBoard">
-        <div className="scoreTile">
+      <div className={scoreboard.wrapper}>
+        <div className={scoreboard.tile}>
           <div>Score</div>
-          <div className="scoreCount">{score}</div>
+          <div className={scoreboard.counter}>{score}</div>
         </div>
-        <div className="scoreTile">
+        <div className={scoreboard.tile}>
           <div>Highscore</div>
-          <div className="scoreCount">{highscore}</div>
+          <div className={scoreboard.counter}>{highscore}</div>
         </div>
       </div>
-      <Link to="/skins" className="menuWrapper">
-        <div className="menuItem">
-          <span>Change Snake Skin</span>
+      <Link to="/skins" className={menu.wrapper}>
+        <div className={menu.entry}>
+          <span>Change Skin</span>
           <span>
-            <img className="rightArrow" src={rightArrow} />
+            <img className={menu['arrow-right']} src={rightArrow} />
           </span>
         </div>
       </Link>
